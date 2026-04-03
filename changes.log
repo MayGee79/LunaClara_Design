@@ -1,6 +1,7 @@
 # LunaClara Design — change log
 
 ## 2026-04-03
+- Repo: `git init`, `.gitignore` (`.DS_Store`), initial commit on `main` (`b58e0fa`).
 - Portfolio: removed Previous/Next; dots-only; single-image carousels hide toolbar; titles “Dragonfly Psychotherapy”, “mAIven CIC”; intro copy updated.
 - Portfolio: three projects in `.portfolio-grid` (one row from 960px); each box is its own carousel; compact toolbar in 3-col.
 - Portfolio: carousels constrained (fixed-height viewport, centred, `object-fit: contain`) so screenshots aren’t full-width huge.
