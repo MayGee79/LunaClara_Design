@@ -1,0 +1,38 @@
+# LunaClara Design — change log
+
+## 2026-04-03
+- Portfolio: removed Previous/Next; dots-only; single-image carousels hide toolbar; titles “Dragonfly Psychotherapy”, “mAIven CIC”; intro copy updated.
+- Portfolio: three projects in `.portfolio-grid` (one row from 960px); each box is its own carousel; compact toolbar in 3-col.
+- Portfolio: carousels constrained (fixed-height viewport, centred, `object-fit: contain`) so screenshots aren’t full-width huge.
+- Portfolio: section `#portfolio` with per-project carousels (`assets/portfolio/dragonfly`, `La Fontana Beauty`, `mAIven`); nav link added; JS `initCarousels` in `main.js`.
+
+## 2026-04-02
+- Buttons: all `.btn` default hot pink; hover/focus mint. Nav Contact CTA matches.
+- Buttons: added press-down `:active` effect to `.site-nav .nav-cta`.
+- Header nav: “Services & pricing” + “About” styled as buttons (`.nav-btn`) to match.
+- Hero title: shadow changed to hot pink.
+- Header: icon sits in brutalist square (`.logo-link` background/border/shadow).
+- Hero: lede gets cream “white” shadow for contrast.
+- Hero: desktop right-column copy centered (`.hero-copy`, `.hero-actions`, `.hero-lede`).
+- Hero: replaced visible H1 with visually-hidden H1 for SEO/accessibility.
+- Hero: lede updated to “Design that works as hard as you do.”
+- Hero: badge “Web · Brand · Digital Marketing”; lede split into two lines with `<br>`.
+- Hero CTA: “Start a project” → “Ready to look good?”
+- Hero: badge text updated to “No agencies. Just May.”
+- Assets: bumped cache-bust to `?v=3` for `assets/icon.png` and `assets/logo.png`.
+- SEO: updated meta title + meta description.
+- About: removed AI sentence from tools paragraph.
+- About: daughters / real-person line under card `h3`; removed duplicate from section header; `.about-card-intro`.
+- About: main card `h3` “Marta May Giardina” → “About LunaClara”.
+- About: updated “What makes this studio different” bullet copy.
+- About: rewrote main bio (2005 origin story, tools, AI); intro line unchanged.
+- About: removed mAIven CIC / sole-trader note; dropped `.about-note` styles.
+- Pricing: Brand Identity £650, Content Pack £250/mo, SEO Audit £250. Added `.pricing-note` (intro portfolio line); note full width to match `.service-block`.
+- Header brand image: `assets/icon.png` (+ `?v=2` cache bust). Hero: `assets/logo.png?v=2`.
+
+## 2026-04-01
+- Pricing: `.service-block` background `warm-grey` → `butter` (#fff5b8).
+- Hero tagline: hot pink fill, ink outline + offset shadow via `text-shadow`.
+- Hero: side-by-side layout from 860px (`hero-layout` / `hero-brand` / `hero-copy`); larger logo in left column; stacks centred on small screens.
+- Hero: `assets/logo.png` in `hero-brand` (`hero-logo`); decorative `alt` + `role="presentation"` because `h1` names the studio.
+- Added one-page site: `index.html` (Hero, Services & Pricing with all tables from business plan v2, About, Contact with mailto form to hello@lunaclara.studio), `css/styles.css` (brand palette, pastel brutalist styling, responsive nav), `js/main.js` (mobile menu, mailto compose, footer year).
