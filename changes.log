@@ -1,6 +1,14 @@
 # LunaClara Design — change log
 
 ## 2026-04-03
+- Services: intro line break before “These are guides…”.
+- Services: blurbs under each service `h3`; pricing footnote copy updated; `.service-blurb`; tighter `h3` bottom margin.
+- Hero: badge pill → “Surrey’s independent Web, Brand & Digital Marketing studio”.
+- Hero: `.sr-only` span under tagline (Surrey + keywords); `.sr-only` shares styles with `.visually-hidden`.
+- About: updated tools paragraph (Surrey/UK, tool list, AI line, creativity).
+- About: section heading “About LunaClara” → “The studio” (kept card heading).
+- About: card subheadings (`About LunaClara`, `What makes this studio different`) Ponyo → Ink.
+- Section titles: hot pink text-shadow on Services & pricing, The studio, Portfolio, Contact.
 - Repo: `git init`, `.gitignore` (`.DS_Store`), initial commit on `main` (`b58e0fa`).
 - Portfolio: removed Previous/Next; dots-only; single-image carousels hide toolbar; titles “Dragonfly Psychotherapy”, “mAIven CIC”; intro copy updated.
 - Portfolio: three projects in `.portfolio-grid` (one row from 960px); each box is its own carousel; compact toolbar in 3-col.

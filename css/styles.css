@@ -66,7 +66,8 @@ a:hover {
   color: var(--ink);
 }
 
-.visually-hidden {
+.visually-hidden,
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -275,6 +276,14 @@ a:hover {
   line-height: 1.1;
   margin: 0 0 0.75rem;
   letter-spacing: -0.02em;
+}
+
+/* Hot pink shadow on key section titles */
+#services-heading,
+#about-heading,
+#portfolio-heading,
+#contact-heading {
+  text-shadow: 3px 3px 0 var(--hot-pink);
 }
 
 .section-intro {
@@ -513,10 +522,17 @@ a:hover {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.35rem;
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 3px solid var(--ink);
   display: inline-block;
+}
+
+.service-blurb {
+  margin: 0 0 1.125rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  max-width: 44rem;
 }
 
 .table-wrap {
@@ -775,7 +791,7 @@ a:hover {
   font-weight: 700;
   font-size: 1.2rem;
   margin: 0 0 0.75rem;
-  color: var(--ponyo);
+  color: var(--ink);
 }
 
 .about-card-intro {
