@@ -93,46 +93,6 @@
   initCarousels();
 
   if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      var name = document.getElementById("name");
-      var email = document.getElementById("email");
-      var topic = document.getElementById("topic");
-      var message = document.getElementById("message");
-
-      if (!name || !email || !topic || !message) return;
-
-      if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
-        contactForm.reportValidity();
-        return;
-      }
-
-      var subject =
-        "[LunaClara] " +
-        topic.value +
-        " — " +
-        name.value.trim();
-
-      var body =
-        "Name: " +
-        name.value.trim() +
-        "\n" +
-        "Email: " +
-        email.value.trim() +
-        "\n" +
-        "Interest: " +
-        topic.value +
-        "\n\n" +
-        message.value.trim();
-
-      var mailto =
-        "mailto:hello@lunaclara.studio?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
-
-      window.location.href = mailto;
-    });
+    // Form submission handled by Formspree Ajax SDK (loaded in index.html)
   }
 })();

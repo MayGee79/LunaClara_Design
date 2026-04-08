@@ -9,6 +9,18 @@
 - About: section heading “About LunaClara” → “The studio” (kept card heading).
 - About: card subheadings (`About LunaClara`, `What makes this studio different`) Ponyo → Ink.
 - Section titles: hot pink text-shadow on Services & pricing, The studio, Portfolio, Contact.
+- Portfolio: heading “Recent work”, intro line, per-project descriptions + service lines; updated alt text on all portfolio images.
+- Buttons: ensured all button elements have pressed `:active` effect (added for menu toggle + carousel dots).
+- Buttons: Uiverse-style hover lift + press, plus slight rounding (palette colours + Ink border).
+- UI: rounded corners applied broadly (logo/icon containers, cards, panels, carousel viewport, form inputs) to match button radius.
+- UI: hero pill and subsection headings use the same corner radius.
+- Services: service headings are plain text (no button-like rounding/shadow).
+- Testimonials: added `#testimonials` section (3 placeholder cards) between portfolio and contact.
+- Testimonials: added first real testimonial (Dr Victoria Froome, Dragonfly Psychotherapy).
+- Contact: heading “Let’s talk”, updated intro copy, added “Print design” dropdown option.
+- Contact: switched from mailto to Formspree POST (`mqegjlgr`); updated hint + submit label; removed mailto JS.
+- Contact: enabled Formspree Ajax (`@formspree/ajax`) with inline success/error and field-level errors.
+- Contact: removed form hint line under message field.
 - Repo: `git init`, `.gitignore` (`.DS_Store`), initial commit on `main` (`b58e0fa`).
 - Portfolio: removed Previous/Next; dots-only; single-image carousels hide toolbar; titles “Dragonfly Psychotherapy”, “mAIven CIC”; intro copy updated.
 - Portfolio: three projects in `.portfolio-grid` (one row from 960px); each box is its own carousel; compact toolbar in 3-col.
