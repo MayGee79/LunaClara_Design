@@ -18,6 +18,9 @@
 - Testimonials: added `#testimonials` section (3 placeholder cards) between portfolio and contact.
 - Testimonials: added first real testimonial (Dr Victoria Froome, Dragonfly Psychotherapy).
 - Contact: heading “Let’s talk”, updated intro copy, added “Print design” dropdown option.
+- SEO: added `sitemap.xml` (site root URL).
+- SEO: added `robots.txt` (allow all + sitemap URL).
+- SEO: added Google Search Console verification meta tag.
 - Contact: switched from mailto to Formspree POST (`mqegjlgr`); updated hint + submit label; removed mailto JS.
 - Contact: enabled Formspree Ajax (`@formspree/ajax`) with inline success/error and field-level errors.
 - Contact: removed form hint line under message field.
