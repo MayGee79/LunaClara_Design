@@ -21,6 +21,8 @@
 - Contact: switched from mailto to Formspree POST (`mqegjlgr`); updated hint + submit label; removed mailto JS.
 - Contact: enabled Formspree Ajax (`@formspree/ajax`) with inline success/error and field-level errors.
 - Contact: removed form hint line under message field.
+- Assets: resized `assets/icon.png` (512px) and `assets/logo.png` (1400px); downscaled portfolio PNG screenshots to max 1200px.
+- About: updated subheading to “About LunaClara Design” for SEO consistency.
 - Repo: `git init`, `.gitignore` (`.DS_Store`), initial commit on `main` (`b58e0fa`).
 - Portfolio: removed Previous/Next; dots-only; single-image carousels hide toolbar; titles “Dragonfly Psychotherapy”, “mAIven CIC”; intro copy updated.
 - Portfolio: three projects in `.portfolio-grid` (one row from 960px); each box is its own carousel; compact toolbar in 3-col.
