@@ -27,6 +27,12 @@
 - Assets: resized `assets/icon.png` (512px) and `assets/logo.png` (1400px); downscaled portfolio PNG screenshots to max 1200px.
 - About: updated subheading to “About LunaClara Design” for SEO consistency.
 - Footer: removed “Marta Giardina · Surrey, UK” from copyright line.
+- Hero (local test): rotating ring uses DM Sans (matches lede) and reduced font size.
+- Hero (local test): rotating ring spacing evened via SVG `textLength` + `lengthAdjust`.
+- Hero (local test): rotating ring now uses two `textPath`s at 0% and 50% for consistent gap.
+- Hero (local test): increased hero logo size inside circular frame.
+- Hero (local test): made hero mark larger and reduced logo padding for a visibly bigger logo.
+- Header: icon container is now fully round with the same bouncy shadow as buttons (no rotating text).
 - Repo: `git init`, `.gitignore` (`.DS_Store`), initial commit on `main` (`b58e0fa`).
 - Portfolio: removed Previous/Next; dots-only; single-image carousels hide toolbar; titles “Dragonfly Psychotherapy”, “mAIven CIC”; intro copy updated.
 - Portfolio: three projects in `.portfolio-grid` (one row from 960px); each box is its own carousel; compact toolbar in 3-col.
