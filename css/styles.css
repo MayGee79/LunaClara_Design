@@ -161,7 +161,7 @@ a:hover {
   padding: 0;
   background: var(--butter);
   border: 3px solid var(--border);
-  border-radius: var(--btn-radius);
+  border-radius: 999px;
   box-shadow: 0.12em 0.12em 0 var(--ink);
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
@@ -459,11 +459,12 @@ a:hover {
 .hero-badge {
   display: inline-block;
   margin: 0 0 1rem;
-  padding: 0.35rem 0.75rem;
+  padding: 0.3rem 0.55rem;
   font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  white-space: nowrap;
   background: var(--butter);
   border: 3px solid var(--border);
   border-radius: var(--btn-radius);
