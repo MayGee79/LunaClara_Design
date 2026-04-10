@@ -5,6 +5,7 @@
   var siteNav = document.getElementById("site-nav");
   var yearEl = document.getElementById("year");
   var contactForm = document.getElementById("contact-form");
+  var logoLink = document.querySelector(".logo-link");
 
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
@@ -21,6 +22,14 @@
         siteNav.classList.remove("is-open");
         navToggle.setAttribute("aria-expanded", "false");
       });
+    });
+  }
+
+  if (logoLink) {
+    logoLink.addEventListener("click", function (e) {
+      // Always scroll to the true top (hash links can be “sticky”)
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 

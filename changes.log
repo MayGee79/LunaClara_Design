@@ -1,5 +1,8 @@
 # LunaClara Design — change log
 
+## 2026-04-10
+- Mobile nav: `.nav-toggle` size `2.75rem` → `3.25rem` to match `.logo-link` icon button.
+
 ## 2026-04-03
 - Services: intro line break before “These are guides…”.
 - Services: blurbs under each service `h3`; pricing footnote copy updated; `.service-blurb`; tighter `h3` bottom margin.
@@ -21,6 +24,7 @@
 - SEO: added `sitemap.xml` (site root URL).
 - SEO: added `robots.txt` (allow all + sitemap URL).
 - SEO: added Google Search Console verification meta tag.
+- Nav: clicking the header icon always scrolls to top.
 - Contact: switched from mailto to Formspree POST (`mqegjlgr`); updated hint + submit label; removed mailto JS.
 - Contact: enabled Formspree Ajax (`@formspree/ajax`) with inline success/error and field-level errors.
 - Contact: removed form hint line under message field.

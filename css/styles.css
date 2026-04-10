@@ -156,8 +156,8 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 3.25rem;
+  height: 3.25rem;
   padding: 0;
   background: var(--butter);
   border: 3px solid var(--border);
