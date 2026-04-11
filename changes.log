@@ -1,7 +1,20 @@
 # LunaClara Design — change log
 
+## 2026-04-11
+- Favicons: wired `assets/favicon/` (`.ico`, 16/32 PNG, `apple-touch-icon`, manifest + Android PNGs); fixed `site.webmanifest` paths + names; `theme-color` meta (ink); cache-bust `?v=1` on favicon URLs.
+- Sections: `.section-header` uses full content width (`max-width: 100%`); `.section-title` + `.section-intro` get `max-width: 100%` + `overflow-wrap: break-word` so copy wraps to viewport / inner width (replaces old `40rem` cap on headers).
+- Sections: `.section-header .section-title` / `.section-header .section-intro` explicit `width: 100%`; `.service-blurb` `max-width: 44rem` → `100%` + `overflow-wrap` (services + portfolio blurbs).
+- About: `.about-subheading` rule only under wording (`inline-block` + `border-bottom`), not full card width.
+- Portfolio: `.portfolio-project-title` same — rule under wording only (`inline-block` + `align-self: center` in flex column).
+
 ## 2026-04-10
 - Mobile nav: `.nav-toggle` size `2.75rem` → `3.25rem` to match `.logo-link` icon button.
+- New section “Made with you, not just for you” (`#made-with-you`) after Services, before About; four `.collab-card` steps; `.section-collab` + brutalist shadows matching site.
+- `#collab-heading`: `white-space: nowrap` + responsive `clamp` font size so the title stays one line on small screens.
+- “Made with you” `.collab-card`: neo-brutalist leaf shape (`border-radius` top-left + bottom-right only), cream fill, `var(--shadow)`; `.collab-steps` four columns from 1080px (2 cols from 640px).
+- `.section-collab .section-intro`: single line (`nowrap`), fluid `clamp` type; full-width header; horizontal scroll if needed on very narrow viewports.
+- `.collab-card`: stack from top (`align-items: stretch`, `align-content: flex-start`); heading `display: block` full width, body `text-align: center`.
+- `.collab-card-title`: `min-height` reserves four title lines + padding + border so divider lines align across cards and stay full width (`width: 100%`, `box-sizing: border-box`); flex (`justify-content: center`, `align-items: stretch`, `text-align: center`) centres title copy in that band.
 
 ## 2026-04-03
 - Services: intro line break before “These are guides…”.

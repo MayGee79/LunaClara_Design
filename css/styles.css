@@ -300,7 +300,14 @@ a:hover {
 
 .section-header {
   margin-bottom: 2rem;
-  max-width: 40rem;
+  max-width: 100%;
+  width: 100%;
+}
+
+.section-header .section-title,
+.section-header .section-intro {
+  width: 100%;
+  max-width: 100%;
 }
 
 .section-title {
@@ -310,14 +317,8 @@ a:hover {
   line-height: 1.1;
   margin: 0 0 0.75rem;
   letter-spacing: -0.02em;
-}
-
-/* Hot pink shadow on key section titles */
-#services-heading,
-#about-heading,
-#portfolio-heading,
-#contact-heading {
-  text-shadow: 3px 3px 0 var(--hot-pink);
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .section-intro {
@@ -325,6 +326,23 @@ a:hover {
   font-size: 1.1rem;
   color: var(--ink);
   opacity: 0.92;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Hot pink shadow on key section titles */
+#services-heading,
+#about-heading,
+#collab-heading,
+#portfolio-heading,
+#contact-heading {
+  text-shadow: 3px 3px 0 var(--hot-pink);
+}
+
+#collab-heading {
+  white-space: nowrap;
+  letter-spacing: -0.035em;
+  font-size: clamp(0.875rem, 2.8vw + 0.85rem, 2.5rem);
 }
 
 /* Hero */
@@ -600,7 +618,8 @@ a:hover {
   margin: 0 0 1.125rem;
   font-size: 1rem;
   line-height: 1.55;
-  max-width: 44rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .table-wrap {
@@ -667,6 +686,121 @@ a:hover {
   box-shadow: var(--shadow-sm);
 }
 
+/* Made with you — process steps */
+.section-collab {
+  background: linear-gradient(180deg, var(--mint) 0%, var(--lavender) 55%, var(--blush) 100%);
+}
+
+.section-collab .section-header {
+  max-width: none;
+}
+
+.section-collab .section-intro {
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  font-size: clamp(0.75rem, 1.05vw + 0.65rem, 1.1rem);
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.collab-steps {
+  --collab-corner: 1.65rem;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .collab-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 1080px) {
+  .collab-steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem 1.15rem;
+  }
+}
+
+.collab-card {
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: 1.35rem 1.1rem;
+  background: var(--cream);
+  border: 3px solid var(--border);
+  /* Neo-brutalist “leaf”: rounded top-left + bottom-right only */
+  border-radius: var(--collab-corner) 0 var(--collab-corner) 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  align-content: flex-start;
+  text-align: center;
+  min-width: 0;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.collab-card:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.18em 0.18em 0 var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collab-card {
+    transition: none;
+  }
+
+  .collab-card:hover {
+    transform: none;
+    box-shadow: var(--shadow);
+  }
+}
+
+.collab-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.2;
+  margin: 0 0 0.65rem;
+  padding: 0 0 0.45rem;
+  border-bottom: 3px solid var(--ink);
+  box-sizing: border-box;
+  /* Same vertical position + full-width rule across cards in a row */
+  min-height: calc(4 * 1.2em + 0.45rem + 3px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  text-wrap: balance;
+  flex: 0 0 auto;
+}
+
+.collab-card-text {
+  margin: 0;
+  padding: 0;
+  font-size: clamp(0.875rem, 1.1vw, 0.98rem);
+  line-height: 1.5;
+  flex: 0 1 auto;
+  flex-grow: 0;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  text-wrap: balance;
+}
+
 /* Portfolio */
 .section-portfolio {
   background: var(--cream);
@@ -705,10 +839,13 @@ a:hover {
   font-weight: 700;
   font-size: clamp(1rem, 2.2vw, 1.2rem);
   margin: 0 0 0.75rem;
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.45rem;
   border-bottom: 3px solid var(--ink);
-  display: block;
+  display: inline-block;
+  max-width: 100%;
+  align-self: center;
   text-align: center;
+  text-wrap: balance;
 }
 
 .portfolio-carousel {
@@ -913,8 +1050,12 @@ a:hover {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.2rem;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.45rem;
   color: var(--ink);
+  display: inline-block;
+  max-width: 100%;
+  border-bottom: 3px solid var(--ink);
 }
 
 .about-card-intro {
