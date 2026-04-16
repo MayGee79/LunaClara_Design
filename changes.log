@@ -8,6 +8,7 @@
 - Sections: `.section-header .section-title` / `.section-header .section-intro` explicit `width: 100%`; `.service-blurb` `max-width: 44rem` → `100%` + `overflow-wrap` (services + portfolio blurbs).
 - About: `.about-subheading` rule only under wording (`inline-block` + `border-bottom`), not full card width.
 - Portfolio: `.portfolio-project-title` same — rule under wording only (`inline-block` + `align-self: center` in flex column).
+ - Assets: bumped cache-bust to `?v=4` for `assets/icon.png` and `assets/logo.png`.
 
 ## 2026-04-10
 - Mobile nav: `.nav-toggle` size `2.75rem` → `3.25rem` to match `.logo-link` icon button.
