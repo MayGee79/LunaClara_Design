@@ -3,7 +3,8 @@
 ## 2026-04-11
 - Portfolio: subgrid (960px+, supporting browsers) aligns carousel viewport + dots across the three cards; `.carousel-viewport` `flex: 0 0 auto`; `.carousel-toolbar` `margin-top: auto`.
 - A11y: contact honeypot `aria-label` + `id`; hidden fields `aria-hidden`; carousel dots min 24×24px + slightly larger dot gap (`?v=cursor3` on CSS).
-- Assets: cache-bust header icon + hero logo (`assets/icon.png?v=5`, `assets/logo.png?v=4`); reduced `.logo-link` padding so the icon appears larger in its circle.
+- Assets: cache-bust header icon (`assets/icon.png?v=5`).
+- Header: reduced `.logo-link` padding so the icon fills the circle more.
 - Favicons: wired `assets/favicon/` (`.ico`, 16/32 PNG, `apple-touch-icon`, manifest + Android PNGs); fixed `site.webmanifest` paths + names; `theme-color` meta (ink); cache-bust `?v=1` on favicon URLs.
 - Sections: `.section-header` uses full content width (`max-width: 100%`); `.section-title` + `.section-intro` get `max-width: 100%` + `overflow-wrap: break-word` so copy wraps to viewport / inner width (replaces old `40rem` cap on headers).
 - Sections: `.section-header .section-title` / `.section-header .section-intro` explicit `width: 100%`; `.service-blurb` `max-width: 44rem` → `100%` + `overflow-wrap` (services + portfolio blurbs).
