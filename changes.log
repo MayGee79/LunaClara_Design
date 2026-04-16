@@ -6,6 +6,7 @@
 - Assets: cache-bust header icon (`assets/icon.png?v=5`).
 - Header: reduced `.logo-link` padding so the icon fills the circle more.
 - Header/Hero: reduced `.logo-link` and `.hero-logo` padding again for a larger mark inside each circle.
+- Hero: reduced `.hero-logo` padding again (only) for an even larger hero mark.
 - Favicons: wired `assets/favicon/` (`.ico`, 16/32 PNG, `apple-touch-icon`, manifest + Android PNGs); fixed `site.webmanifest` paths + names; `theme-color` meta (ink); cache-bust `?v=1` on favicon URLs.
 - Sections: `.section-header` uses full content width (`max-width: 100%`); `.section-title` + `.section-intro` get `max-width: 100%` + `overflow-wrap: break-word` so copy wraps to viewport / inner width (replaces old `40rem` cap on headers).
 - Sections: `.section-header .section-title` / `.section-header .section-intro` explicit `width: 100%`; `.service-blurb` `max-width: 44rem` → `100%` + `overflow-wrap` (services + portfolio blurbs).

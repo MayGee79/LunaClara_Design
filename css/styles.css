@@ -429,7 +429,7 @@ a:hover {
   border-radius: 999px;
   box-shadow: var(--shadow);
   background: var(--cream);
-  padding: clamp(0.2rem, 0.9vw, 0.55rem);
+  padding: clamp(0.12rem, 0.7vw, 0.45rem);
 }
 
 .hero-copy {
