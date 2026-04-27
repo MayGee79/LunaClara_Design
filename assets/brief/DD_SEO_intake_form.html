@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Audit Intake — LunaClara Design</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            background: white;
+            border: 4px solid black;
+            padding: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        .header h1 {
+            font-family: 'Syne', system-ui, sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .form-section {
+            background: white;
+            border: 4px solid black;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: black;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .question {
+            font-family: 'Syne', system-ui, sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border: 2px solid #e5e5e5;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+
+        .radio-option:hover {
+            border-color: #000;
+            background: white;
+        }
+
+        .radio-option.selected {
+            border-color: #000;
+            background: white;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .radio-option input {
+            display: none;
+        }
+
+        .radio-custom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+            margin-top: 2px;
+        }
+
+        .radio-option.selected .radio-custom {
+            border-color: #000;
+            background: #000;
+        }
+
+        .radio-option.selected .radio-custom::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .radio-label {
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border: 2px solid #e5e5e5;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+
+        .checkbox-option:hover {
+            border-color: #000;
+            background: white;
+        }
+
+        .checkbox-option.selected {
+            border-color: #000;
+            background: white;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .checkbox-option input {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            flex-shrink: 0;
+            position: relative;
+            margin-top: 2px;
+        }
+
+        .checkbox-option.selected .checkbox-custom {
+            border-color: #000;
+            background: #000;
+        }
+
+        .checkbox-option.selected .checkbox-custom::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+        }
+
+        .text-input, .textarea-input {
+            width: 100%;
+            padding: 16px;
+            border: 3px solid #000;
+            background: white;
+            font-size: 16px;
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.5;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .text-input:focus, .textarea-input:focus {
+            outline: none;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .conditional {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .conditional.show {
+            display: block;
+        }
+
+        .submit-section {
+            background: white;
+            border: 4px solid black;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+        }
+
+        .submit-btn {
+            background: black;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: #333;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success-message {
+            background: white;
+            border: 4px solid black;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+        }
+
+        .success-message h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #000;
+        }
+
+        .success-message p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px 16px;
+            }
+
+            .header, .form-section, .submit-section {
+                padding: 24px;
+                margin-bottom: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .question {
+                font-size: 16px;
+            }
+
+            .radio-option, .checkbox-option {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div style="width: 56px; height: 56px; border: 3px solid #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: white; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px;">LCd</div>
+            </div>
+            <div class="header-content">
+                <h1>Let's get Delightfully Decadent found.</h1>
+                <p>Before I dive into your audit, I just need about 5 minutes of your time. There are no right or wrong answers — just tell me what's true for you and your business and I'll take it from there.</p>
+            </div>
+        </div>
+
+        <form id="auditForm" action="https://formspree.io/f/mqegjlgr" method="POST">
+
+            <!-- Question 1 -->
+            <div class="form-section">
+                <div class="question-number">1</div>
+                <div class="question">Where do most of your customers come from right now?</div>
+                <div class="radio-group" data-name="customer_source">
+                    <div class="radio-option" data-value="word_of_mouth">
+                        <input type="radio" name="customer_source" value="word_of_mouth">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Word of mouth and personal recommendations</div>
+                    </div>
+                    <div class="radio-option" data-value="social_media">
+                        <input type="radio" name="customer_source" value="social_media">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Social media (Instagram, Facebook, TikTok)</div>
+                    </div>
+                    <div class="radio-option" data-value="google">
+                        <input type="radio" name="customer_source" value="google">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Google or other search engines</div>
+                    </div>
+                    <div class="radio-option" data-value="mix">
+                        <input type="radio" name="customer_source" value="mix">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">A mix of all of the above</div>
+                    </div>
+                    <div class="radio-option" data-value="not_sure">
+                        <input type="radio" name="customer_source" value="not_sure">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Honestly, I'm not sure</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="form-section">
+                <div class="question-number">2</div>
+                <div class="question">Picture your perfect customer landing on your website. Who are they, what are they celebrating or looking for, and what would make them hit order?</div>
+                <textarea class="textarea-input" name="perfect_customer" placeholder="Paint me a picture..."></textarea>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="form-section">
+                <div class="question-number">3</div>
+                <div class="question">When someone lands on your website, what's the one thing you most want them to do?</div>
+                <div class="radio-group" data-name="main_goal">
+                    <div class="radio-option" data-value="enquiry">
+                        <input type="radio" name="main_goal" value="enquiry">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Send me an enquiry</div>
+                    </div>
+                    <div class="radio-option" data-value="order">
+                        <input type="radio" name="main_goal" value="order">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Place an order directly</div>
+                    </div>
+                    <div class="radio-option" data-value="browse">
+                        <input type="radio" name="main_goal" value="browse">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Browse and get inspired</div>
+                    </div>
+                    <div class="radio-option" data-value="contact">
+                        <input type="radio" name="main_goal" value="contact">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Find out where I'm based and how to reach me</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="form-section">
+                <div class="question-number">4</div>
+                <div class="question">How do you honestly feel about your website right now?</div>
+                <div class="radio-group" data-name="website_feeling">
+                    <div class="radio-option" data-value="love_it">
+                        <input type="radio" name="website_feeling" value="love_it">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">I love it, I just don't think enough people are finding it</div>
+                    </div>
+                    <div class="radio-option" data-value="not_me">
+                        <input type="radio" name="website_feeling" value="not_me">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">It's okay but it doesn't really feel like me</div>
+                    </div>
+                    <div class="radio-option" data-value="needs_work">
+                        <input type="radio" name="website_feeling" value="needs_work">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">It needs work and I know it</div>
+                    </div>
+                    <div class="radio-option" data-value="ignore_it">
+                        <input type="radio" name="website_feeling" value="ignore_it">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">I barely look at it, honestly</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="form-section">
+                <div class="question-number">5</div>
+                <div class="question">Is there anything on the site you already know isn't working, or anything you've been meaning to update? Even small things.</div>
+                <textarea class="textarea-input" name="known_issues" placeholder="Any broken links, outdated info, pages that feel off..."></textarea>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="form-section">
+                <div class="question-number">6</div>
+                <div class="question">What does success look like for you over the next six months? Pick everything that applies.</div>
+                <div class="checkbox-group" data-name="success_goals">
+                    <div class="checkbox-option" data-value="more_google_traffic">
+                        <input type="checkbox" name="success_goals[]" value="more_google_traffic">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">More people finding me on Google</div>
+                    </div>
+                    <div class="checkbox-option" data-value="more_enquiries">
+                        <input type="checkbox" name="success_goals[]" value="more_enquiries">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">More orders and enquiries coming through the website</div>
+                    </div>
+                    <div class="checkbox-option" data-value="local_ranking">
+                        <input type="checkbox" name="success_goals[]" value="local_ranking">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">Ranking higher in my local area</div>
+                    </div>
+                    <div class="checkbox-option" data-value="clear_picture">
+                        <input type="checkbox" name="success_goals[]" value="clear_picture">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">A clear picture of what's working and what isn't</div>
+                    </div>
+                    <div class="checkbox-option" data-value="actionable_plan">
+                        <input type="checkbox" name="success_goals[]" value="actionable_plan">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">A plan I can actually act on myself</div>
+                    </div>
+                    <div class="checkbox-option" data-value="grow_beyond_local">
+                        <input type="checkbox" name="success_goals[]" value="grow_beyond_local">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">Growing beyond my local area</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="form-section">
+                <div class="question-number">7</div>
+                <div class="question">Are there any other businesses or websites you admire and wish yours was more like?</div>
+                <div class="radio-group" data-name="admired_sites">
+                    <div class="radio-option" data-value="yes">
+                        <input type="radio" name="admired_sites" value="yes">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Yes</div>
+                    </div>
+                    <div class="radio-option" data-value="no">
+                        <input type="radio" name="admired_sites" value="no">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Not really, I just know I want to stand out</div>
+                    </div>
+                </div>
+                <div class="conditional" id="admired_sites_detail">
+                    <textarea class="textarea-input" name="admired_sites_detail" placeholder="Tell me who — and what you love about them"></textarea>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="form-section">
+                <div class="question-number">8</div>
+                <div class="question">Do you have any of the following set up? Tick everything that applies — and if you're not sure, just tick "not sure" and I'll check for you.</div>
+                <div class="checkbox-group" data-name="tools_setup">
+                    <div class="checkbox-option" data-value="search_console">
+                        <input type="checkbox" name="tools_setup[]" value="search_console">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">Google Search Console</div>
+                    </div>
+                    <div class="checkbox-option" data-value="analytics">
+                        <input type="checkbox" name="tools_setup[]" value="analytics">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">Google Analytics</div>
+                    </div>
+                    <div class="checkbox-option" data-value="business_profile">
+                        <input type="checkbox" name="tools_setup[]" value="business_profile">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">A Google Business Profile (the listing that shows up on Google Maps)</div>
+                    </div>
+                    <div class="checkbox-option" data-value="none">
+                        <input type="checkbox" name="tools_setup[]" value="none">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">None of the above</div>
+                    </div>
+                    <div class="checkbox-option" data-value="not_sure">
+                        <input type="checkbox" name="tools_setup[]" value="not_sure">
+                        <div class="checkbox-custom"></div>
+                        <div class="radio-label">Not sure</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="form-section">
+                <div class="question-number">9</div>
+                <div class="question">Is there anything else I should know before I get started? Upcoming launches, seasonal drops, anything exciting on the horizon — anything at all.</div>
+                <textarea class="textarea-input" name="additional_info" placeholder="Summer wedding season, Christmas specials, new flavours..."></textarea>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="form-section">
+                <div class="question-number">10</div>
+                <div class="question">I'll need to send you a Google access request so I can look at your site's data. Are you happy for me to do that?</div>
+                <div class="radio-group" data-name="google_access">
+                    <div class="radio-option" data-value="yes">
+                        <input type="radio" name="google_access" value="yes">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Yes, go ahead</div>
+                    </div>
+                    <div class="radio-option" data-value="need_help">
+                        <input type="radio" name="google_access" value="need_help">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">Yes, but I'll need a bit of help with that</div>
+                    </div>
+                    <div class="radio-option" data-value="explain">
+                        <input type="radio" name="google_access" value="explain">
+                        <div class="radio-custom"></div>
+                        <div class="radio-label">I'm not sure what this means — can you explain?</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">Send my responses</button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="success-message hidden">
+            <h2>You're all set — thank you!</h2>
+            <p id="successText">I've got everything I need to get started. I'll be in touch shortly with your access request and a timeline for the audit. Get ready to see your business through a whole new lens.</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.radio-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const group = this.closest('.radio-group');
+                const name = group.dataset.name;
+                group.querySelectorAll('.radio-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input').checked = true;
+                handleConditionalLogic(name, this.dataset.value);
+            });
+        });
+
+        document.querySelectorAll('.checkbox-option').forEach(option => {
+            option.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                const input = this.querySelector('input');
+                input.checked = !input.checked;
+                const group = this.closest('.checkbox-group');
+                if (group.dataset.name === 'tools_setup') {
+                    const value = this.dataset.value;
+                    if (value === 'none' || value === 'not_sure') {
+                        if (this.classList.contains('selected')) {
+                            group.querySelectorAll('.checkbox-option').forEach(opt => {
+                                if (opt !== this && (opt.dataset.value !== 'none' && opt.dataset.value !== 'not_sure')) {
+                                    opt.classList.remove('selected');
+                                    opt.querySelector('input').checked = false;
+                                }
+                            });
+                        }
+                    } else {
+                        group.querySelectorAll('.checkbox-option').forEach(opt => {
+                            if (opt.dataset.value === 'none' || opt.dataset.value === 'not_sure') {
+                                opt.classList.remove('selected');
+                                opt.querySelector('input').checked = false;
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+        function handleConditionalLogic(name, value) {
+            if (name === 'admired_sites') {
+                const detail = document.getElementById('admired_sites_detail');
+                if (value === 'yes') {
+                    detail.classList.add('show');
+                } else {
+                    detail.classList.remove('show');
+                    detail.querySelector('textarea').value = '';
+                }
+            }
+        }
+
+        document.getElementById('auditForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const googleAccess = document.querySelector('input[name="google_access"]:checked');
+            const successText = document.getElementById('successText');
+
+            if (googleAccess && (googleAccess.value === 'need_help' || googleAccess.value === 'explain')) {
+                successText.textContent = "I've got everything I need. I'll send over a simple step-by-step guide for the Google access — it'll take two minutes, I promise. So excited to get stuck into this for you.";
+            }
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('auditForm').classList.add('hidden');
+                    document.getElementById('successMessage').classList.remove('hidden');
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('Something went wrong. Please try again or email me directly.');
+                }
+            }).catch(() => {
+                alert('Something went wrong. Please try again or email me directly.');
+            });
+        });
+    </script>
+</body>
+</html>

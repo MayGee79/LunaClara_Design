@@ -1,0 +1,97 @@
+# LunaClara Design — change log
+
+## 2026-04-11
+- Portfolio: subgrid (960px+, supporting browsers) aligns carousel viewport + dots across the three cards; `.carousel-viewport` `flex: 0 0 auto`; `.carousel-toolbar` `margin-top: auto`.
+- A11y: contact honeypot `aria-label` + `id`; hidden fields `aria-hidden`; carousel dots min 24×24px + slightly larger dot gap (`?v=cursor3` on CSS).
+- Assets: cache-bust header icon (`assets/icon.png?v=5`).
+- Header: reduced `.logo-link` padding so the icon fills the circle more.
+- Header/Hero: reduced `.logo-link` and `.hero-logo` padding again for a larger mark inside each circle.
+- Hero: reduced `.hero-logo` padding again (only) for an even larger hero mark.
+- Favicons: wired `assets/favicon/` (`.ico`, 16/32 PNG, `apple-touch-icon`, manifest + Android PNGs); fixed `site.webmanifest` paths + names; `theme-color` meta (ink); cache-bust `?v=1` on favicon URLs.
+- Sections: `.section-header` uses full content width (`max-width: 100%`); `.section-title` + `.section-intro` get `max-width: 100%` + `overflow-wrap: break-word` so copy wraps to viewport / inner width (replaces old `40rem` cap on headers).
+- Sections: `.section-header .section-title` / `.section-header .section-intro` explicit `width: 100%`; `.service-blurb` `max-width: 44rem` → `100%` + `overflow-wrap` (services + portfolio blurbs).
+- About: `.about-subheading` rule only under wording (`inline-block` + `border-bottom`), not full card width.
+- Portfolio: `.portfolio-project-title` same — rule under wording only (`inline-block` + `align-self: center` in flex column).
+
+## 2026-04-23
+- Added `start.html`: gated client onboarding brief (pastel brutalism styling, fixed grid background, single-question stepper, Formspree submit placeholder).
+
+## 2026-04-10
+- Mobile nav: `.nav-toggle` size `2.75rem` → `3.25rem` to match `.logo-link` icon button.
+- New section “Made with you, not just for you” (`#made-with-you`) after Services, before About; four `.collab-card` steps; `.section-collab` + brutalist shadows matching site.
+- `#collab-heading`: `white-space: nowrap` + responsive `clamp` font size so the title stays one line on small screens.
+- “Made with you” `.collab-card`: neo-brutalist leaf shape (`border-radius` top-left + bottom-right only), cream fill, `var(--shadow)`; `.collab-steps` four columns from 1080px (2 cols from 640px).
+- `.section-collab .section-intro`: single line (`nowrap`), fluid `clamp` type; full-width header; horizontal scroll if needed on very narrow viewports.
+- `.collab-card`: stack from top (`align-items: stretch`, `align-content: flex-start`); heading `display: block` full width, body `text-align: center`.
+- `.collab-card-title`: `min-height` reserves four title lines + padding + border so divider lines align across cards and stay full width (`width: 100%`, `box-sizing: border-box`); flex (`justify-content: center`, `align-items: stretch`, `text-align: center`) centres title copy in that band.
+
+## 2026-04-03
+- Services: intro line break before “These are guides…”.
+- Services: blurbs under each service `h3`; pricing footnote copy updated; `.service-blurb`; tighter `h3` bottom margin.
+- Hero: badge pill → “Surrey’s independent Web, Brand & Digital Marketing studio”.
+- Hero: `.sr-only` span under tagline (Surrey + keywords); `.sr-only` shares styles with `.visually-hidden`.
+- About: updated tools paragraph (Surrey/UK, tool list, AI line, creativity).
+- About: section heading “About LunaClara” → “The studio” (kept card heading).
+- About: card subheadings (`About LunaClara`, `What makes this studio different`) Ponyo → Ink.
+- Section titles: hot pink text-shadow on Services & pricing, The studio, Portfolio, Contact.
+- Portfolio: heading “Recent work”, intro line, per-project descriptions + service lines; updated alt text on all portfolio images.
+- Buttons: ensured all button elements have pressed `:active` effect (added for menu toggle + carousel dots).
+- Buttons: Uiverse-style hover lift + press, plus slight rounding (palette colours + Ink border).
+- UI: rounded corners applied broadly (logo/icon containers, cards, panels, carousel viewport, form inputs) to match button radius.
+- UI: hero pill and subsection headings use the same corner radius.
+- Services: service headings are plain text (no button-like rounding/shadow).
+- Testimonials: added `#testimonials` section (3 placeholder cards) between portfolio and contact.
+- Testimonials: added first real testimonial (Dr Victoria Froome, Dragonfly Psychotherapy).
+- Contact: heading “Let’s talk”, updated intro copy, added “Print design” dropdown option.
+- SEO: added `sitemap.xml` (site root URL).
+- SEO: added `robots.txt` (allow all + sitemap URL).
+- SEO: added Google Search Console verification meta tag.
+- Nav: clicking the header icon always scrolls to top.
+- Contact: switched from mailto to Formspree POST (`mqegjlgr`); updated hint + submit label; removed mailto JS.
+- Contact: enabled Formspree Ajax (`@formspree/ajax`) with inline success/error and field-level errors.
+- Contact: removed form hint line under message field.
+- Assets: resized `assets/icon.png` (512px) and `assets/logo.png` (1400px); downscaled portfolio PNG screenshots to max 1200px.
+- About: updated subheading to “About LunaClara Design” for SEO consistency.
+- Footer: removed “Marta Giardina · Surrey, UK” from copyright line.
+- Hero (local test): rotating ring uses DM Sans (matches lede) and reduced font size.
+- Hero (local test): rotating ring spacing evened via SVG `textLength` + `lengthAdjust`.
+- Hero (local test): rotating ring now uses two `textPath`s at 0% and 50% for consistent gap.
+- Hero (local test): increased hero logo size inside circular frame.
+- Hero (local test): made hero mark larger and reduced logo padding for a visibly bigger logo.
+- Header: icon container is now fully round with the same bouncy shadow as buttons (no rotating text).
+- Repo: `git init`, `.gitignore` (`.DS_Store`), initial commit on `main` (`b58e0fa`).
+- Portfolio: removed Previous/Next; dots-only; single-image carousels hide toolbar; titles “Dragonfly Psychotherapy”, “mAIven CIC”; intro copy updated.
+- Portfolio: three projects in `.portfolio-grid` (one row from 960px); each box is its own carousel; compact toolbar in 3-col.
+- Portfolio: carousels constrained (fixed-height viewport, centred, `object-fit: contain`) so screenshots aren’t full-width huge.
+- Portfolio: section `#portfolio` with per-project carousels (`assets/portfolio/dragonfly`, `La Fontana Beauty`, `mAIven`); nav link added; JS `initCarousels` in `main.js`.
+
+## 2026-04-02
+- Buttons: all `.btn` default hot pink; hover/focus mint. Nav Contact CTA matches.
+- Buttons: added press-down `:active` effect to `.site-nav .nav-cta`.
+- Header nav: “Services & pricing” + “About” styled as buttons (`.nav-btn`) to match.
+- Hero title: shadow changed to hot pink.
+- Header: icon sits in brutalist square (`.logo-link` background/border/shadow).
+- Hero: lede gets cream “white” shadow for contrast.
+- Hero: desktop right-column copy centered (`.hero-copy`, `.hero-actions`, `.hero-lede`).
+- Hero: replaced visible H1 with visually-hidden H1 for SEO/accessibility.
+- Hero: lede updated to “Design that works as hard as you do.”
+- Hero: badge “Web · Brand · Digital Marketing”; lede split into two lines with `<br>`.
+- Hero CTA: “Start a project” → “Ready to look good?”
+- Hero: badge text updated to “No agencies. Just May.”
+- Assets: bumped cache-bust to `?v=3` for `assets/icon.png` and `assets/logo.png`.
+- SEO: updated meta title + meta description.
+- About: removed AI sentence from tools paragraph.
+- About: daughters / real-person line under card `h3`; removed duplicate from section header; `.about-card-intro`.
+- About: main card `h3` “Marta May Giardina” → “About LunaClara”.
+- About: updated “What makes this studio different” bullet copy.
+- About: rewrote main bio (2005 origin story, tools, AI); intro line unchanged.
+- About: removed mAIven CIC / sole-trader note; dropped `.about-note` styles.
+- Pricing: Brand Identity £650, Content Pack £250/mo, SEO Audit £250. Added `.pricing-note` (intro portfolio line); note full width to match `.service-block`.
+- Header brand image: `assets/icon.png` (+ `?v=2` cache bust). Hero: `assets/logo.png?v=2`.
+
+## 2026-04-01
+- Pricing: `.service-block` background `warm-grey` → `butter` (#fff5b8).
+- Hero tagline: hot pink fill, ink outline + offset shadow via `text-shadow`.
+- Hero: side-by-side layout from 860px (`hero-layout` / `hero-brand` / `hero-copy`); larger logo in left column; stacks centred on small screens.
+- Hero: `assets/logo.png` in `hero-brand` (`hero-logo`); decorative `alt` + `role="presentation"` because `h1` names the studio.
+- Added one-page site: `index.html` (Hero, Services & Pricing with all tables from business plan v2, About, Contact with mailto form to hello@lunaclara.studio), `css/styles.css` (brand palette, pastel brutalist styling, responsive nav), `js/main.js` (mobile menu, mailto compose, footer year).
