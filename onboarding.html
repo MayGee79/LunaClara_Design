@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2a2018">
+  <title>LunaClara Studio — Start</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=start1">
+
+  <style>
+    /* Page-specific layer: keep site variables + fonts, adjust layout */
+    body {
+      background: url("assets/lunaclara_grid.png") center / cover no-repeat fixed;
+      min-height: 100vh;
+    }
+
+    .brief-shell {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: clamp(1.25rem, 5vw, 2.5rem) 1.25rem;
+    }
+
+    .brief-card {
+      width: min(680px, 90vw);
+      background: var(--cream);
+      border: 3px solid var(--border);
+      border-radius: 0;
+      box-shadow: var(--shadow);
+      padding: clamp(1.15rem, 3.5vw, 1.75rem);
+      position: relative;
+    }
+
+    .brief-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .brief-progress {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      opacity: 0.92;
+    }
+
+    .brief-optional {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--butter);
+      border: 2px solid var(--ink);
+      box-shadow: 2px 2px 0 var(--ink);
+      padding: 0.2rem 0.5rem;
+      white-space: nowrap;
+    }
+
+    .brief-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+      line-height: 1.1;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brief-body {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      opacity: 0.95;
+    }
+
+    .brief-helper {
+      margin: 0 0 1.1rem;
+      font-size: 0.95rem;
+      opacity: 0.86;
+    }
+
+    .brief-field {
+      margin-bottom: 0.9rem;
+    }
+
+    .brief-field label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .brief-input,
+    .brief-textarea,
+    .brief-file {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      padding: 0.65rem 0.75rem;
+      border: 3px solid var(--ink);
+      border-radius: 0;
+      background: var(--cream);
+    }
+
+    .brief-textarea {
+      min-height: 9rem;
+      resize: vertical;
+    }
+
+    .brief-input:focus,
+    .brief-textarea:focus,
+    .brief-file:focus {
+      outline: 3px solid var(--hot-pink);
+      outline-offset: 2px;
+    }
+
+    .brief-row-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .brief-row-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .brief-tiles {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin: 0.25rem 0 0.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .brief-tiles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .brief-tile {
+      appearance: none;
+      width: 100%;
+      text-align: left;
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 1rem;
+      line-height: 1.2;
+      padding: 0.9rem 0.9rem;
+      background: var(--butter);
+      border: 3px solid var(--ink);
+      border-radius: 0;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .brief-tile:hover,
+    .brief-tile:focus-visible {
+      background: var(--mint);
+      transform: translate(-0.05em, -0.05em);
+      box-shadow: 0.18em 0.18em 0 var(--ink);
+      outline: none;
+    }
+
+    .brief-tile[aria-pressed="true"] {
+      background: var(--hot-pink);
+    }
+
+    .brief-tile:active {
+      transform: translate(0.05em, 0.05em);
+      box-shadow: 0.06em 0.06em 0 var(--ink);
+    }
+
+    .brief-image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    @media (min-width: 720px) {
+      .brief-image-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .brief-image-tile {
+      background: var(--cream);
+      border: 3px solid var(--ink);
+      border-radius: 0;
+      box-shadow: var(--shadow-sm);
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .brief-image-tile:hover,
+    .brief-image-tile:focus-visible {
+      background: var(--mint);
+      transform: translate(-0.05em, -0.05em);
+      box-shadow: 0.18em 0.18em 0 var(--ink);
+      outline: none;
+    }
+
+    .brief-image-tile[aria-pressed="true"] {
+      background: var(--hot-pink);
+    }
+
+    .brief-image-tile img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background: #fff;
+      border: 2px solid var(--ink);
+    }
+
+    .brief-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.25rem;
+      gap: 0.75rem;
+    }
+
+    .brief-back {
+      font-family: var(--font-body);
+      font-weight: 900;
+      font-size: 1rem;
+      padding: 0.75rem 1.15rem;
+      background: var(--butter);
+      border: 3px solid var(--ink);
+      border-radius: 0;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .brief-back:hover,
+    .brief-back:focus-visible {
+      background: var(--mint);
+      transform: translate(-0.05em, -0.05em);
+      box-shadow: 0.18em 0.18em 0 var(--ink);
+      outline: none;
+    }
+
+    .brief-back:active {
+      transform: translate(0.05em, 0.05em);
+      box-shadow: 0.06em 0.06em 0 var(--ink);
+    }
+
+    .brief-next {
+      font-family: var(--font-body);
+      font-weight: 900;
+      font-size: 1rem;
+      padding: 0.75rem 1.15rem;
+      background: var(--hot-pink);
+      border: 3px solid var(--ink);
+      border-radius: 0;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .brief-next:hover,
+    .brief-next:focus-visible {
+      background: var(--mint);
+      transform: translate(-0.05em, -0.05em);
+      box-shadow: 0.18em 0.18em 0 var(--ink);
+      outline: none;
+    }
+
+    .brief-next:active {
+      transform: translate(0.05em, 0.05em);
+      box-shadow: 0.06em 0.06em 0 var(--ink);
+    }
+
+    .brief-error {
+      margin-top: 0.75rem;
+      font-weight: 700;
+      background: var(--blush);
+      border: 3px solid var(--ink);
+      box-shadow: var(--shadow-sm);
+      padding: 0.75rem 0.85rem;
+    }
+
+    .brief-hidden {
+      display: none !important;
+    }
+
+    .palette-card {
+      border: 2px solid #2a2018;
+      cursor: pointer;
+      transition: box-shadow 0.15s;
+      background: #fff;
+      margin-bottom: 12px;
+    }
+
+    .palette-card:hover { box-shadow: 4px 4px 0 #2a2018; }
+
+    .palette-card.selected {
+      box-shadow: 6px 6px 0 #2a2018;
+      outline: 3px solid #2a2018;
+      outline-offset: 2px;
+    }
+
+    .palette-swatches { display: flex; height: 72px; }
+    .palette-swatches span { flex: 1; }
+    .palette-body { padding: 16px 20px; }
+
+    .palette-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      margin-bottom: 10px;
+    }
+
+    .palette-desc { font-size: 14px; color: #2a2018; margin: 0 0 6px; line-height: 1.6; }
+    .palette-best { font-size: 13px; font-style: italic; margin: 0 0 12px; }
+    .palette-hexes { display: flex; flex-wrap: wrap; gap: 6px; }
+    .palette-hexes span { font-size: 11px; border: 1.5px solid #2a2018; padding: 2px 7px; color: #2a2018; }
+
+    .style-card {
+      border: 2px solid var(--ink);
+      cursor: pointer;
+      background: var(--cream);
+      transition: box-shadow 0.15s, transform 0.12s;
+    }
+    .style-card:hover {
+      box-shadow: 4px 4px 0 var(--ink);
+      transform: translate(-0.05em, -0.05em);
+    }
+    .style-card.selected {
+      box-shadow: 6px 6px 0 var(--ink);
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
+      background: var(--mint);
+    }
+    .style-card-inner {
+      display: flex;
+      gap: 0;
+    }
+    .style-card-img {
+      width: 140px;
+      min-width: 140px;
+      height: 140px;
+      object-fit: contain;
+      background: #fff;
+      padding: 10px;
+      border-right: 2px solid var(--ink);
+      display: block;
+    }
+    .style-card-body {
+      padding: 14px 16px;
+      flex: 1;
+    }
+    .style-card-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 2px 8px;
+      margin-bottom: 8px;
+    }
+    .style-card-desc {
+      font-size: 13px;
+      color: var(--ink);
+      margin: 0 0 6px;
+      line-height: 1.6;
+    }
+    .style-card-best {
+      font-size: 12px;
+      font-style: italic;
+      color: #888;
+      margin: 0;
+    }
+    .style-card-none {
+      padding: 18px 22px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      border-style: dashed;
+      background: #fafafa;
+    }
+    .style-card-none.selected {
+      background: var(--mint);
+    }
+
+    @media (max-width: 480px) {
+      .style-card-inner {
+        flex-direction: column;
+      }
+      .style-card-img {
+        width: 100%;
+        min-width: unset;
+        height: 160px;
+        border-right: none;
+        border-bottom: 2px solid var(--ink);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="brief-shell" id="main">
+    <section class="brief-card" id="brief" aria-label="Client onboarding brief">
+      <div class="brief-topline">
+        <div class="brief-progress" id="progress">Question 1 of 10</div>
+        <div class="brief-optional brief-hidden" id="optional-tag">Optional</div>
+      </div>
+
+      <h1 class="brief-title" id="q-title"></h1>
+      <p class="brief-body" id="q-body"></p>
+      <p class="brief-helper" id="q-helper"></p>
+
+      <form id="brief-form" enctype="multipart/form-data" novalidate>
+        <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-label="Leave this field blank">
+        <input type="hidden" name="source" value="lunaclara.studio start brief">
+        <div id="q-inputs"></div>
+
+        <div id="submit-error" class="brief-error brief-hidden" role="alert">
+          Something went wrong — please email hello@lunaclara.studio directly and we'll sort it.
+        </div>
+
+        <div class="brief-actions">
+          <button class="brief-back brief-hidden" type="button" id="back-btn">Back</button>
+          <button class="brief-next" type="submit" id="next-btn">Next</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqegjlgr";
+
+    const state = {
+      stepIndex: 0,
+      answers: {
+        projectName: "Your business",
+      },
+      files: {},
+      submitting: false,
+    };
+
+    const steps = [
+      {
+        id: "welcome",
+        kind: "screen",
+        title: "Let's build something beautiful.",
+        body: "This short brief helps May understand your vision before a single sketch is made. There are no wrong answers — just tell us what feels true to you. It takes about ten minutes.",
+        helper: "",
+        optional: false,
+      },
+      {
+        id: "q1",
+        kind: "textarea",
+        title: "In your own words, what is your business all about?",
+        helper: "Take your time with this one. Don't worry about getting it perfect — just tell us what you'd tell a friend.",
+        name: "about",
+        optional: false,
+      },
+      {
+        id: "q2",
+        kind: "tripleText",
+        title: "What are three words you'd love people to feel when they see your logo?",
+        helper: "Think feeling not description. Not 'green' or 'round' — more like 'safe' or 'hopeful' or 'grounded.'",
+        names: ["word1", "word2", "word3"],
+        labels: ["First word", "Second word", "Third word"],
+        optional: false,
+      },
+      {
+        id: "q3",
+        kind: "textarea",
+        title: "Who is your ideal client? Who are they and what are they searching for?",
+        helper: "As much or as little as you like. Even a rough sketch helps.",
+        name: "idealClient",
+        optional: false,
+      },
+      {
+        id: "q4",
+        kind: "singleTiles",
+        title: "Do you have any existing brand elements you'd like to keep, or is this a completely fresh start?",
+        helper: "",
+        name: "brandStartingPoint",
+        options: [
+          "I have some colours or fonts I'd like to keep",
+          "Fresh start, completely open",
+          "Not sure yet, happy to be guided",
+        ],
+        optional: false,
+      },
+      {
+        id: "q5",
+        kind: "paletteCards",
+        title: "What colour moods feel right for your business?",
+        helper: "Pick as many or as few as feel right.",
+        name: "colourMoods",
+        optional: false,
+      },
+      {
+        id: "q6",
+        kind: "styleCards",
+        title: "Which of these visual styles speaks to you?",
+        body: "Take a look at the examples below and select any that feel right — there's no wrong answer and you can choose more than one. If nothing fits, select \"None of these feel right\" and tell us what you're drawn to instead.",
+        helper: "",
+        name: "visualStyles",
+        optional: false,
+        styles: [
+          {
+            id: "botanical-illustrated",
+            name: "Botanical Illustrated",
+            desc: "Hand-drawn nature illustration — leaves, flowers, fine organic detail. Feels considered and rooted. The mark itself tells a story about the natural world.",
+            best: "Best for: practices with a strong connection to growth, nature or the botanical meaning of their name",
+            img: "assets/brief/logo_examples/botanical-illustrated.png",
+          },
+          {
+            id: "clean-typographic",
+            name: "Clean Typographic",
+            desc: "The name does the work. No icon, no illustration — just beautifully considered lettering with real presence. Confident and uncluttered.",
+            best: "Best for: practices where the name itself is strong enough to carry the identity",
+            img: "assets/brief/logo_examples/clean-typographic.png",
+          },
+          {
+            id: "simple-twist",
+            name: "Simple Twist",
+            desc: "A clean mark with one unexpected detail — a notch, a hidden shape, a clever negative space. Memorable without being complicated.",
+            best: "Best for: practices that want to feel modern and considered, with a quiet signature detail",
+            img: "assets/brief/logo_examples/simple-twist.png",
+          },
+          {
+            id: "stamp-seal",
+            name: "Stamp & Seal",
+            desc: "A circular badge or emblem — heritage, credibility, craft. Feels established and trustworthy. Works beautifully on stationery and print.",
+            best: "Best for: practices that want to feel grounded, official and warm at the same time",
+            img: "assets/brief/logo_examples/stamp-seal.png",
+          },
+          {
+            id: "toasty",
+            name: "Toasty",
+            desc: "Rounded letterforms, soft curves, hand-touched warmth. Approachable and human — the visual equivalent of a warm handshake. Feels personal rather than corporate.",
+            best: "Best for: practices where approachability and emotional warmth are the first thing clients need to feel",
+            img: "assets/brief/logo_examples/toasty.png",
+          },
+          {
+            id: "soft-illustrated",
+            name: "Soft Illustrated",
+            desc: "A painterly, watercolour-style illustration — loose, warm, full of personality. Feels handmade and deeply personal. No two feel quite alike.",
+            best: "Best for: practices with a distinctive character and a client base that values the human over the polished",
+            img: "assets/brief/logo_examples/soft-illustrated.png",
+          },
+          {
+            id: "abstract-symbolic",
+            name: "Abstract & Symbolic",
+            desc: "A geometric mark where meaning is embedded rather than literal. The shape suggests something without spelling it out. Often the most versatile and enduring style.",
+            best: "Best for: practices that want a strong, distinctive mark that works across every context and scale",
+            img: "assets/brief/logo_examples/abstract-symbolic.png",
+          },
+        ],
+      },
+      {
+        id: "q8",
+        kind: "linkAndUpload",
+        title: "Any inspiration you want to share?",
+        helper: "Completely optional. Could be a logo, a colour, a mood — anything that makes you think yes, that.",
+        linkName: "inspoLink",
+        fileName: "inspoUpload",
+        optional: true,
+      },
+      {
+        id: "q9",
+        kind: "textarea",
+        title: "Is there anything you definitely do not want to see in your logo?",
+        helper: "This is just as useful as knowing what you love. Nothing is too small to mention.",
+        name: "avoid",
+        optional: false,
+      },
+      {
+        id: "q10",
+        kind: "textarea",
+        title: "Anything else you'd like May to know before we get started?",
+        helper: "The floor is yours.",
+        name: "anythingElse",
+        optional: true,
+      },
+      {
+        id: "thanks",
+        kind: "screen",
+        title: "That's everything — thank you.",
+        body: "May will be in touch within two working days to talk through what comes next. In the meantime you can always reach her at hello@lunaclara.studio. Looking forward to making something you love.",
+        helper: "",
+        optional: false,
+      },
+    ];
+
+    const briefEl = document.getElementById("brief");
+    const progressEl = document.getElementById("progress");
+    const optionalTagEl = document.getElementById("optional-tag");
+    const titleEl = document.getElementById("q-title");
+    const bodyEl = document.getElementById("q-body");
+    const helperEl = document.getElementById("q-helper");
+    const inputsEl = document.getElementById("q-inputs");
+    const briefForm = document.getElementById("brief-form");
+    const backBtn = document.getElementById("back-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const submitErrorEl = document.getElementById("submit-error");
+
+    function show(el) { el.classList.remove("brief-hidden"); }
+    function hide(el) { el.classList.add("brief-hidden"); }
+
+    function setSubmitError(visible) {
+      visible ? show(submitErrorEl) : hide(submitErrorEl);
+    }
+
+    function clampStepIndex() {
+      if (state.stepIndex < 0) state.stepIndex = 0;
+      if (state.stepIndex >= steps.length) state.stepIndex = steps.length - 1;
+    }
+
+    function isFormStep(step) {
+      return step.id !== "welcome" && step.id !== "thanks";
+    }
+
+    function getQuestionNumber() {
+      const questionSteps = steps.filter(s => isFormStep(s));
+      const current = steps[state.stepIndex];
+      const idx = questionSteps.findIndex(s => s.id === current.id);
+      return { idx: idx === -1 ? null : idx + 1, total: questionSteps.length };
+    }
+
+    function progressText() {
+      const current = steps[state.stepIndex];
+      if (!isFormStep(current)) return "";
+      const { idx, total } = getQuestionNumber();
+      return `Question ${idx} of ${total}`;
+    }
+
+    function renderScreen(step) {
+      titleEl.textContent = step.title || "";
+      bodyEl.textContent = step.body || "";
+      helperEl.textContent = step.helper || "";
+      inputsEl.innerHTML = "";
+      hide(optionalTagEl);
+      progressEl.textContent = step.id === "welcome" ? "" : "";
+      nextBtn.textContent = step.id === "thanks" ? "Done" : "Next";
+      nextBtn.disabled = false;
+      setSubmitError(false);
+    }
+
+    function createField(labelText, inputEl) {
+      const wrap = document.createElement("div");
+      wrap.className = "brief-field";
+      if (labelText) {
+        const label = document.createElement("label");
+        label.textContent = labelText;
+        if (inputEl.id) label.htmlFor = inputEl.id;
+        wrap.appendChild(label);
+      }
+      wrap.appendChild(inputEl);
+      return wrap;
+    }
+
+    function renderTextarea(step) {
+      const textarea = document.createElement("textarea");
+      textarea.className = "brief-textarea";
+      textarea.name = step.name;
+      textarea.id = step.name;
+      textarea.value = state.answers[step.name] || "";
+      textarea.placeholder = "";
+      textarea.required = !step.optional;
+      textarea.addEventListener("input", () => {
+        state.answers[step.name] = textarea.value;
+      });
+      inputsEl.appendChild(createField("", textarea));
+    }
+
+    function renderTripleText(step) {
+      const row = document.createElement("div");
+      row.className = "brief-row-3";
+      step.names.forEach((name, i) => {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.className = "brief-input";
+        input.name = name;
+        input.id = name;
+        input.value = state.answers[name] || "";
+        input.autocomplete = "off";
+        input.required = !step.optional;
+        input.addEventListener("input", () => {
+          state.answers[name] = input.value;
+        });
+        const field = createField(step.labels[i], input);
+        row.appendChild(field);
+      });
+      inputsEl.appendChild(row);
+    }
+
+    function renderSingleTiles(step) {
+      const group = document.createElement("div");
+      group.className = "brief-tiles";
+
+      step.options.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "brief-tile";
+        btn.textContent = opt;
+        btn.setAttribute("aria-pressed", state.answers[step.name] === opt ? "true" : "false");
+        btn.addEventListener("click", () => {
+          state.answers[step.name] = opt;
+          [...group.querySelectorAll("button")].forEach(b => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+        });
+        group.appendChild(btn);
+      });
+
+      inputsEl.appendChild(group);
+
+      // Q4 reveal panel — shown only when brand elements tile is selected
+      const BRAND_ELEMENTS_OPTION = "I have some colours or fonts I'd like to keep";
+
+      if (step.options.includes(BRAND_ELEMENTS_OPTION)) {
+
+        const revealWrap = document.createElement("div");
+        revealWrap.id = "q4-reveal";
+        revealWrap.style.cssText = "display:none; margin-top: 1rem;";
+
+        // Description field
+        const descLabel = document.createElement("label");
+        descLabel.textContent = "Describe any colours or fonts you'd like us to work with. Hex codes are great if you have them, but plain descriptions work too — \"a deep teal\", \"something like the green on my current website\", \"a serif font, quite elegant\".";
+        descLabel.htmlFor = "q4b_description";
+        descLabel.style.cssText = "display:block; font-weight:700; margin-bottom:0.35rem;";
+
+        const descTextarea = document.createElement("textarea");
+        descTextarea.className = "brief-textarea";
+        descTextarea.name = "q4b_description";
+        descTextarea.id = "q4b_description";
+        descTextarea.placeholder = "My current colours are... / I've always used... / I'd like to keep...";
+        descTextarea.value = state.answers["q4b_description"] || "";
+        descTextarea.required = false;
+        descTextarea.addEventListener("input", () => {
+          state.answers["q4b_description"] = descTextarea.value;
+        });
+
+        const descField = document.createElement("div");
+        descField.className = "brief-field";
+        descField.appendChild(descLabel);
+        descField.appendChild(descTextarea);
+
+        // File upload field
+        const fileLabel = document.createElement("label");
+        fileLabel.textContent = "Upload anything useful — an existing logo, a brand guideline, a screenshot of a font or colour you like. Any format is fine.";
+        fileLabel.htmlFor = "q4b_file";
+        fileLabel.style.cssText = "display:block; font-weight:700; margin-bottom:0.35rem;";
+
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.className = "brief-file";
+        fileInput.name = "q4b_file";
+        fileInput.id = "q4b_file";
+        fileInput.accept = "image/*,.pdf,.ai,.eps,.svg,.zip";
+        fileInput.required = false;
+        fileInput.addEventListener("change", () => {
+          const f = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+          state.files["q4b_file"] = f;
+        });
+
+        const fileField = document.createElement("div");
+        fileField.className = "brief-field";
+        fileField.appendChild(fileLabel);
+        fileField.appendChild(fileInput);
+
+        revealWrap.appendChild(descField);
+        revealWrap.appendChild(fileField);
+        inputsEl.appendChild(revealWrap);
+
+        // Wire reveal to tile clicks
+        function syncQ4Reveal() {
+          const isSelected = state.answers[step.name] === BRAND_ELEMENTS_OPTION;
+          revealWrap.style.display = isSelected ? "block" : "none";
+        }
+
+        // Re-wire existing tile buttons to also trigger reveal
+        [...group.querySelectorAll("button")].forEach(btn => {
+          btn.addEventListener("click", syncQ4Reveal);
+        });
+
+        // Set initial state on render
+        syncQ4Reveal();
+      }
+    }
+
+    function renderMultiTilesWithOther(step) {
+      const group = document.createElement("div");
+      group.className = "brief-tiles";
+      const selected = new Set(Array.isArray(state.answers[step.name]) ? state.answers[step.name] : []);
+
+      const otherWrap = document.createElement("div");
+      otherWrap.className = "brief-field brief-hidden";
+
+      const otherLabel = document.createElement("label");
+      otherLabel.textContent = step.otherPrompt;
+      otherLabel.htmlFor = step.otherName;
+      const otherTextarea = document.createElement("textarea");
+      otherTextarea.className = "brief-textarea";
+      otherTextarea.name = step.otherName;
+      otherTextarea.id = step.otherName;
+      otherTextarea.value = state.answers[step.otherName] || "";
+      otherTextarea.required = false;
+      otherTextarea.addEventListener("input", () => {
+        state.answers[step.otherName] = otherTextarea.value;
+      });
+      otherWrap.appendChild(otherLabel);
+      otherWrap.appendChild(otherTextarea);
+
+      function syncOtherVisibility() {
+        if (selected.has(step.otherOption)) show(otherWrap);
+        else hide(otherWrap);
+      }
+
+      step.options.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "brief-tile";
+        btn.textContent = opt;
+        btn.setAttribute("aria-pressed", selected.has(opt) ? "true" : "false");
+        btn.addEventListener("click", () => {
+          if (selected.has(opt)) selected.delete(opt);
+          else selected.add(opt);
+          btn.setAttribute("aria-pressed", selected.has(opt) ? "true" : "false");
+          state.answers[step.name] = [...selected];
+          syncOtherVisibility();
+        });
+        group.appendChild(btn);
+      });
+
+      inputsEl.appendChild(group);
+      inputsEl.appendChild(otherWrap);
+      syncOtherVisibility();
+    }
+
+    function renderPaletteCards(step) {
+      const selected = new Set(Array.isArray(state.answers[step.name]) ? state.answers[step.name] : []);
+
+      const wrap = document.createElement("div");
+      wrap.innerHTML = `
+<!-- DAMSON & LIME -->
+<div class="palette-card" onclick="this.classList.toggle('selected')">
+  <div class="palette-swatches">
+    <span style="flex:2;background:#1E0F1A;"></span>
+    <span style="flex:2;background:#D6E681;"></span>
+    <span style="flex:1;background:#FEFAF4;"></span>
+  </div>
+  <div class="palette-body">
+    <span class="palette-label" style="background:#1E0F1A;color:#D6E681;">Damson &amp; Lime</span>
+    <p class="palette-desc">If your practice holds space for the full weight of human experience — grief, transition, the things that don't resolve neatly — this palette might feel like yours. The deep damson is serious without being cold, and the lime lifts it somewhere unexpected. It doesn't look like a therapy logo. That might be exactly the point.</p>
+    <p class="palette-best">Best for: bold typographic or abstract mark with strong contrast</p>
+    <div class="palette-hexes"><span>#1E0F1A</span><span>#D6E681</span><span>#FEFAF4</span></div>
+  </div>
+</div>
+
+<!-- FERN & FIG -->
+<div class="palette-card" onclick="this.classList.toggle('selected')">
+  <div class="palette-swatches">
+    <span style="flex:2;background:#2D4A35;"></span>
+    <span style="flex:2;background:#C4826E;"></span>
+    <span style="flex:1;background:#F6F0EB;"></span>
+  </div>
+  <div class="palette-body">
+    <span class="palette-label" style="background:#2D4A35;color:#F6F0EB;">Fern &amp; Fig</span>
+    <p class="palette-desc">If your work feels like something growing in low light — patient, rooted, quietly transformative — this palette might resonate. The deep fig-leaf green has real weight, and the warm terracotta accent brings a human warmth that stops it reading as clinical. Nothing about this says generic wellness. It says you've thought about it.</p>
+    <p class="palette-best">Best for: botanical illustrative mark or organic abstract form</p>
+    <div class="palette-hexes"><span>#2D4A35</span><span>#C4826E</span><span>#F6F0EB</span></div>
+  </div>
+</div>
+
+<!-- DARK ROSE & MINT -->
+<div class="palette-card" onclick="this.classList.toggle('selected')">
+  <div class="palette-swatches">
+    <span style="flex:2;background:#2A0F1E;"></span>
+    <span style="flex:2;background:#CFEE9E;"></span>
+    <span style="flex:1;background:#F5E8EE;"></span>
+  </div>
+  <div class="palette-body">
+    <span class="palette-label" style="background:#2A0F1E;color:#CFEE9E;">Dark Rose &amp; Mint</span>
+    <p class="palette-desc">If you want your practice to feel distinctive, considered and quietly bold — this might be the one. The deep rose-black is rare in therapeutic branding, and the soft mint brings it back to something alive and gentle. The pale blush neutral ties it together without sweetening it. This palette has depth, in every sense.</p>
+    <p class="palette-best">Best for: symbolic or abstract mark — particularly suits LGBTQ+ affirming and relational practice</p>
+    <div class="palette-hexes"><span>#2A0F1E</span><span>#CFEE9E</span><span>#F5E8EE</span></div>
+  </div>
+</div>
+
+<!-- HUNTER & MIST -->
+<div class="palette-card" onclick="this.classList.toggle('selected')">
+  <div class="palette-swatches">
+    <span style="flex:2;background:#386150;"></span>
+    <span style="flex:2;background:#58B09C;"></span>
+    <span style="flex:1;background:#CAF7E2;"></span>
+  </div>
+  <div class="palette-body">
+    <span class="palette-label" style="background:#386150;color:#CAF7E2;">Hunter &amp; Mist</span>
+    <p class="palette-desc">If your practice feels like movement — like things actually shifting, changing, finding their way toward light — this palette might speak to you. The hunter green is grounded and directional, and the teal accent carries a freshness that feels genuinely alive. Of all the options here, this one feels most like growth as a lived experience rather than a concept.</p>
+    <p class="palette-best">Best for: botanical or abstract mark — strong contrast at all scales</p>
+    <div class="palette-hexes"><span>#386150</span><span>#58B09C</span><span>#CAF7E2</span></div>
+  </div>
+</div>
+
+<!-- MOSS GARDEN -->
+<div class="palette-card" onclick="this.classList.toggle('selected')">
+  <div class="palette-swatches">
+    <span style="flex:2;background:#1A3A2E;"></span>
+    <span style="flex:2;background:#C4A882;"></span>
+    <span style="flex:1;background:#F2EDE4;"></span>
+  </div>
+  <div class="palette-body">
+    <span class="palette-label" style="background:#1A3A2E;color:#F2EDE4;">Moss Garden</span>
+    <p class="palette-desc">If your business feels like more than a name to you — if it describes something real about how you work and what you believe — this palette might be the most honest expression of that. Deep forest green, warm sand, linen. It feels like actual soil, actual leaves. Earthy without being rustic, botanical without being obvious.</p>
+    <p class="palette-best">Best for: detailed botanical illustrative mark or strong typographic logo</p>
+    <div class="palette-hexes"><span>#1A3A2E</span><span>#C4A882</span><span>#F2EDE4</span></div>
+  </div>
+</div>
+
+<!-- WILLOW & LAVENDER -->
+<div class="palette-card" onclick="this.classList.toggle('selected')">
+  <div class="palette-swatches">
+    <span style="flex:2;background:#88D18A;"></span>
+    <span style="flex:2;background:#6A5B6E;"></span>
+    <span style="flex:1;background:#CCDDB7;"></span>
+  </div>
+  <div class="palette-body">
+    <span class="palette-label" style="background:#6A5B6E;color:#CCDDB7;">Willow &amp; Lavender</span>
+    <p class="palette-desc">If your practice holds a particular commitment to emotional safety — for neurodivergent clients, for the LGBTQ+ community, for anyone who needs to feel seen before they can feel heard — this palette carries that signal clearly. The willow green is warm and alive, the dusty lavender quietly communicates care and consideration. Together they feel gentle without being soft.</p>
+    <p class="palette-best">Best for: abstract or symbolic mark — particularly suits inclusive and affirming practice</p>
+    <div class="palette-hexes"><span>#88D18A</span><span>#6A5B6E</span><span>#CCDDB7</span></div>
+  </div>
+</div>
+
+<!-- NONE OF THESE -->
+<div class="palette-card" style="background:#fafafa;border-style:dashed;text-align:center;padding:18px 22px;font-size:14px;color:#2a2018;" onclick="this.classList.toggle('selected')">
+  None of these feel right
+</div>
+      `.trim();
+
+      const cards = [...wrap.querySelectorAll(".palette-card")];
+
+      function cardName(card) {
+        const label = card.querySelector(".palette-label");
+        if (label) return label.textContent.trim();
+        return card.textContent.trim();
+      }
+
+      // Restore selection state from answers
+      cards.forEach((card) => {
+        const name = cardName(card);
+        if (name && selected.has(name)) card.classList.add("selected");
+      });
+
+      // Bubble listener reads final class after inline onclick toggles
+      wrap.addEventListener("click", (e) => {
+        const card = e.target.closest(".palette-card");
+        if (!card) return;
+
+        const name = cardName(card);
+        if (!name) return;
+
+        const isSelected = card.classList.contains("selected");
+        if (isSelected) selected.add(name);
+        else selected.delete(name);
+
+        state.answers[step.name] = [...selected];
+      });
+
+      inputsEl.appendChild(wrap);
+    }
+
+    function renderStyleCards(step) {
+      const selected = new Set(Array.isArray(state.answers[step.name]) ? state.answers[step.name] : []);
+
+      const wrap = document.createElement("div");
+      wrap.style.cssText = "display:flex;flex-direction:column;gap:12px;";
+
+      step.styles.forEach((style) => {
+        const card = document.createElement("div");
+        card.className = "style-card";
+        if (selected.has(style.id)) card.classList.add("selected");
+        card.dataset.id = style.id;
+
+        card.innerHTML = `
+      <div class="style-card-inner">
+        <img class="style-card-img" src="${style.img}" alt="${style.name} logo example" loading="lazy">
+        <div class="style-card-body">
+          <span class="style-card-label">${style.name}</span>
+          <p class="style-card-desc">${style.desc}</p>
+          <p class="style-card-best">${style.best}</p>
+        </div>
+      </div>
+    `;
+
+        card.addEventListener("click", () => {
+          card.classList.toggle("selected");
+          if (selected.has(style.id)) selected.delete(style.id);
+          else selected.add(style.id);
+          state.answers[step.name] = [...selected];
+          syncNoneStyle();
+        });
+
+        wrap.appendChild(card);
+      });
+
+      // None of these tile
+      const noneTile = document.createElement("div");
+      noneTile.className = "style-card style-card-none";
+      noneTile.dataset.id = "none";
+      if (selected.has("none")) noneTile.classList.add("selected");
+      noneTile.textContent = "None of these feel right";
+      noneTile.addEventListener("click", () => {
+        noneTile.classList.toggle("selected");
+        if (selected.has("none")) selected.delete("none");
+        else selected.add("none");
+        state.answers[step.name] = [...selected];
+      });
+      wrap.appendChild(noneTile);
+
+      // Always-visible free text field
+      const textField = document.createElement("div");
+      textField.className = "brief-field";
+      textField.style.marginTop = "8px";
+
+      const textLabel = document.createElement("label");
+      textLabel.htmlFor = "visualStylesOther";
+      textLabel.textContent = "Tell us more about the styles you're drawn to — or describe something you've seen that you loved. Any references, vibes or words that feel right are useful.";
+      textLabel.style.cssText = "display:block;font-weight:700;margin-bottom:0.35rem;";
+
+      const textArea = document.createElement("textarea");
+      textArea.className = "brief-textarea";
+      textArea.name = "visualStylesOther";
+      textArea.id = "visualStylesOther";
+      textArea.placeholder = "I love logos that feel... / I once saw a logo that... / I'd like to avoid...";
+      textArea.value = state.answers["visualStylesOther"] || "";
+      textArea.required = false;
+      textArea.addEventListener("input", () => {
+        state.answers["visualStylesOther"] = textArea.value;
+      });
+
+      textField.appendChild(textLabel);
+      textField.appendChild(textArea);
+      wrap.appendChild(textField);
+
+      function syncNoneStyle() {}
+
+      inputsEl.appendChild(wrap);
+    }
+
+    function renderImageChoices(step) {
+      const grid = document.createElement("div");
+      grid.className = "brief-image-grid";
+      const selected = new Set(Array.isArray(state.answers[step.name]) ? state.answers[step.name] : []);
+
+      step.images.forEach((img) => {
+        const tile = document.createElement("button");
+        tile.type = "button";
+        tile.className = "brief-image-tile";
+        tile.setAttribute("aria-pressed", selected.has(img.id) ? "true" : "false");
+        tile.setAttribute("aria-label", `Toggle ${img.alt}`);
+
+        const image = document.createElement("img");
+        image.src = img.src;
+        image.alt = img.alt;
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        tile.appendChild(image);
+
+        tile.addEventListener("click", () => {
+          if (selected.has(img.id)) selected.delete(img.id);
+          else selected.add(img.id);
+          tile.setAttribute("aria-pressed", selected.has(img.id) ? "true" : "false");
+          state.answers[step.name] = [...selected];
+        });
+
+        grid.appendChild(tile);
+      });
+
+      const note = document.createElement("textarea");
+      note.className = "brief-textarea";
+      note.name = step.noteName;
+      note.id = step.noteName;
+      note.placeholder = step.notePrompt;
+      note.value = state.answers[step.noteName] || "";
+      note.required = false;
+      note.addEventListener("input", () => {
+        state.answers[step.noteName] = note.value;
+      });
+
+      inputsEl.appendChild(grid);
+      inputsEl.appendChild(createField(step.notePrompt, note));
+    }
+
+    function renderLinkAndUpload(step) {
+      const link = document.createElement("input");
+      link.type = "url";
+      link.className = "brief-input";
+      link.name = step.linkName;
+      link.id = step.linkName;
+      link.placeholder = "https://";
+      link.value = state.answers[step.linkName] || "";
+      link.required = false;
+      link.addEventListener("input", () => {
+        state.answers[step.linkName] = link.value;
+      });
+
+      const file = document.createElement("input");
+      file.type = "file";
+      file.className = "brief-file";
+      file.name = step.fileName;
+      file.id = step.fileName;
+      file.accept = "image/*";
+      file.required = false;
+      file.addEventListener("change", () => {
+        const f = file.files && file.files[0] ? file.files[0] : null;
+        state.files[step.fileName] = f;
+      });
+
+      inputsEl.appendChild(createField("Paste a link", link));
+      inputsEl.appendChild(createField("Or upload an image", file));
+    }
+
+    function renderStep() {
+      clampStepIndex();
+      const step = steps[state.stepIndex];
+      setSubmitError(false);
+
+      titleEl.textContent = step.title || "";
+      bodyEl.textContent = step.body || "";
+      helperEl.textContent = step.helper || "";
+
+      inputsEl.innerHTML = "";
+      progressEl.textContent = progressText();
+
+      if (step.optional) show(optionalTagEl);
+      else hide(optionalTagEl);
+
+      if (step.kind === "screen") {
+        renderScreen(step);
+        if (step.id === "welcome") {
+          progressEl.textContent = "";
+          nextBtn.textContent = "Next";
+        }
+        if (step.id === "thanks") {
+          progressEl.textContent = "";
+          nextBtn.textContent = "Done";
+        }
+        if (state.stepIndex > 0 && step.id !== "thanks") show(backBtn);
+        else hide(backBtn);
+        return;
+      }
+
+      nextBtn.textContent = step.id === "q10" ? "Submit" : "Next";
+      if (state.stepIndex > 0) show(backBtn);
+      else hide(backBtn);
+
+      if (step.kind === "textarea") renderTextarea(step);
+      if (step.kind === "tripleText") renderTripleText(step);
+      if (step.kind === "singleTiles") renderSingleTiles(step);
+      if (step.kind === "multiTilesWithOther") renderMultiTilesWithOther(step);
+      if (step.kind === "styleCards") renderStyleCards(step);
+      if (step.kind === "paletteCards") renderPaletteCards(step);
+      if (step.kind === "imageChoices") renderImageChoices(step);
+      if (step.kind === "linkAndUpload") renderLinkAndUpload(step);
+    }
+
+    function stepIsValid() {
+      const step = steps[state.stepIndex];
+      if (step.kind === "screen") return true;
+
+      if (step.optional) return true;
+
+      if (step.kind === "textarea") {
+        return (state.answers[step.name] || "").trim().length > 0;
+      }
+
+      if (step.kind === "tripleText") {
+        return step.names.every(n => (state.answers[n] || "").trim().length > 0);
+      }
+
+      if (step.kind === "singleTiles") {
+        return typeof state.answers[step.name] === "string" && state.answers[step.name].trim().length > 0;
+      }
+
+      if (step.kind === "multiTilesWithOther") {
+        const arr = Array.isArray(state.answers[step.name]) ? state.answers[step.name] : [];
+        if (arr.length === 0) return false;
+        if (arr.includes(step.otherOption)) return (state.answers[step.otherName] || "").trim().length > 0;
+        return true;
+      }
+
+      if (step.kind === "paletteCards") {
+        const arr = Array.isArray(state.answers[step.name]) ? state.answers[step.name] : [];
+        return arr.length > 0;
+      }
+
+      if (step.kind === "styleCards") {
+        const arr = Array.isArray(state.answers[step.name]) ? state.answers[step.name] : [];
+        return arr.length > 0;
+      }
+
+      if (step.kind === "imageChoices") {
+        return true;
+      }
+
+      if (step.kind === "linkAndUpload") {
+        return true;
+      }
+
+      return true;
+    }
+
+    function collectPayload() {
+      const data = new FormData();
+      data.append("_subject", "New onboarding brief — LunaClara Studio");
+      data.append("project", state.answers.projectName || "Your business");
+      data.append("submittedAt", new Date().toISOString());
+
+      Object.entries(state.answers).forEach(([key, value]) => {
+        if (value === undefined || value === null) return;
+        if (Array.isArray(value)) data.append(key, value.join(", "));
+        else data.append(key, String(value));
+      });
+
+      Object.entries(state.files).forEach(([key, file]) => {
+        if (file instanceof File) data.append(key, file, file.name);
+      });
+
+      return data;
+    }
+
+    async function submitAll() {
+      state.submitting = true;
+      nextBtn.disabled = true;
+      setSubmitError(false);
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          body: collectPayload(),
+          headers: { "Accept": "application/json" },
+        });
+
+        if (!res.ok) throw new Error("Formspree failed");
+
+        state.stepIndex = steps.findIndex(s => s.id === "thanks");
+        renderStep();
+      } catch (err) {
+        setSubmitError(true);
+      } finally {
+        state.submitting = false;
+        nextBtn.disabled = false;
+      }
+    }
+
+    briefForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const step = steps[state.stepIndex];
+
+      if (step.id === "thanks") return;
+
+      if (!stepIsValid()) {
+        const first = briefForm.querySelector("textarea, input");
+        if (first) first.focus();
+        return;
+      }
+
+      if (step.id === "q10") {
+        await submitAll();
+        return;
+      }
+
+      state.stepIndex += 1;
+      renderStep();
+      const focusTarget = briefForm.querySelector("textarea, input, button");
+      if (focusTarget) focusTarget.focus();
+    });
+
+    backBtn.addEventListener("click", () => {
+      if (state.submitting) return;
+      if (state.stepIndex <= 0) return;
+      state.stepIndex -= 1;
+      renderStep();
+      const focusTarget = briefForm.querySelector("textarea, input, button");
+      if (focusTarget) focusTarget.focus();
+    });
+
+    state.stepIndex = 0;
+    renderStep();
+  </script>
+</body>
+</html>
+

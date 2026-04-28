@@ -447,7 +447,7 @@
     const state = {
       stepIndex: 0,
       answers: {
-        projectName: "Seeds of Change",
+        projectName: "Your business",
       },
       files: {},
       submitting: false,
@@ -465,7 +465,7 @@
       {
         id: "q1",
         kind: "textarea",
-        title: "In your own words, what is Seeds of Change all about?",
+        title: "In your own words, what is your business all about?",
         helper: "Take your time with this one. Don't worry about getting it perfect — just tell us what you'd tell a friend.",
         name: "about",
         optional: false,
@@ -503,7 +503,7 @@
       {
         id: "q5",
         kind: "paletteCards",
-        title: "What colour moods feel right for Seeds of Change?",
+        title: "What colour moods feel right for your business?",
         helper: "Pick as many or as few as feel right.",
         name: "colourMoods",
         optional: false,
@@ -921,7 +921,7 @@
   </div>
   <div class="palette-body">
     <span class="palette-label" style="background:#1A3A2E;color:#F2EDE4;">Moss Garden</span>
-    <p class="palette-desc">If Seeds of Change feels like more than a name to you — if it describes something real about how you work and what you believe — this palette might be the most honest expression of that. Deep forest green, warm sand, linen. It feels like actual soil, actual leaves. Earthy without being rustic, botanical without being obvious.</p>
+    <p class="palette-desc">If your business feels like more than a name to you — if it describes something real about how you work and what you believe — this palette might be the most honest expression of that. Deep forest green, warm sand, linen. It feels like actual soil, actual leaves. Earthy without being rustic, botanical without being obvious.</p>
     <p class="palette-best">Best for: detailed botanical illustrative mark or strong typographic logo</p>
     <div class="palette-hexes"><span>#1A3A2E</span><span>#C4A882</span><span>#F2EDE4</span></div>
   </div>
@@ -1225,7 +1225,7 @@
     function collectPayload() {
       const data = new FormData();
       data.append("_subject", "New onboarding brief — LunaClara Studio");
-      data.append("project", state.answers.projectName || "Seeds of Change");
+      data.append("project", state.answers.projectName || "Your business");
       data.append("submittedAt", new Date().toISOString());
 
       Object.entries(state.answers).forEach(([key, value]) => {

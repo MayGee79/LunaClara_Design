@@ -23,6 +23,7 @@
 - `start.html`: updated Q6 to style cards with image examples; renamed logo example files.
 - `start.html`: ensured logo images use `object-fit: contain` so they are fully visible in tiles.
 - `start.html`: set Formspree endpoint to `mqegjlgr`.
+- `start.html`: renamed to `logo_onboarding.html`; updated copy to "your business".
 
 ## 2026-04-10
 - Mobile nav: `.nav-toggle` size `2.75rem` → `3.25rem` to match `.logo-link` icon button.
