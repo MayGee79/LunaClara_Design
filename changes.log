@@ -16,6 +16,14 @@
 ## 2026-04-23
 - Added `start.html`: gated client onboarding brief (pastel brutalism styling, fixed grid background, single-question stepper, Formspree submit placeholder).
 
+## 2026-04-28
+- `start.html`: removed access code gate; brief now opens directly to the questions.
+- `start.html`: removed hot-pink text shadow from question titles.
+- `start.html`: added Back button on steps after the welcome screen.
+- `start.html`: updated Q6 to style cards with image examples; renamed logo example files.
+- `start.html`: ensured logo images use `object-fit: contain` so they are fully visible in tiles.
+- `start.html`: set Formspree endpoint to `mqegjlgr`.
+
 ## 2026-04-10
 - Mobile nav: `.nav-toggle` size `2.75rem` → `3.25rem` to match `.logo-link` icon button.
 - New section “Made with you, not just for you” (`#made-with-you`) after Services, before About; four `.collab-card` steps; `.section-collab` + brutalist shadows matching site.
