@@ -416,6 +416,19 @@ a:hover {
   .hero-rotating { animation: none; }
 }
 
+@media (max-width: 859px) {
+  .hero-mark {
+    width: min(20rem, 78vw);
+    margin-inline: auto;
+  }
+
+  .hero-rotating {
+    inset: -9%;
+    width: 118%;
+    height: 118%;
+  }
+}
+
 .hero-logo {
   position: relative;
   z-index: 1;
@@ -1003,7 +1016,8 @@ a:hover {
 
 @media (min-width: 900px) {
   .testimonials-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
     align-items: stretch;
   }
 }
