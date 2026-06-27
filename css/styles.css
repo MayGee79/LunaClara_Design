@@ -418,14 +418,14 @@ a:hover {
 
 @media (max-width: 859px) {
   .hero-mark {
-    width: min(20rem, 78vw);
+    width: min(19.5rem, 74vw);
     margin-inline: auto;
   }
 
   .hero-rotating {
-    inset: -9%;
-    width: 118%;
-    height: 118%;
+    inset: -16%;
+    width: 132%;
+    height: 132%;
   }
 }
 
