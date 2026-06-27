@@ -1,5 +1,10 @@
 # LunaClara Design — change log
 
+## 2026-06-27
+- Testimonials: removed two "Testimonial coming soon." placeholders; added Sallie / La Fontana Beauty quote; grid now 2-up on desktop (`gap: 1.5rem`), stacked on mobile.
+- Hero (mobile): `@media (max-width: 859px)` caps `.hero-mark` to `min(19.5rem, 74vw)` (centred) and sizes `.hero-rotating` to `132%` / `inset: -16%` so the rotating text ring stays centred and fully visible (no clipping).
+- Cache-bust: bumped CSS to `styles.css?v=cursor4` so devices stop serving the stale `?v=cursor3` (root cause of the mobile hero ring still appearing clipped after fixes).
+
 ## 2026-04-11
 - Portfolio: subgrid (960px+, supporting browsers) aligns carousel viewport + dots across the three cards; `.carousel-viewport` `flex: 0 0 auto`; `.carousel-toolbar` `margin-top: auto`.
 - A11y: contact honeypot `aria-label` + `id`; hidden fields `aria-hidden`; carousel dots min 24×24px + slightly larger dot gap (`?v=cursor3` on CSS).
