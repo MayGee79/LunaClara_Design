@@ -1,6 +1,7 @@
 # LunaClara Design — change log
 
 ## 2026-06-29
+- Analytics: Google tag (GA4) `G-HLLFFQ79LY` in `index.html` `<head>` (SEO audit: analytics tracking missing).
 - SEO: homepage `<title>` lengthened to ~54 chars — `LunaClara Design | Web & Graphic Design Studio in Surrey` (audit flagged title too short).
 - Hero badge (mobile): block pill with `fit-content` / `max-width: 100%`, balanced wrap, tighter letter-spacing so copy stays inside the yellow box. CSS `?v=cursor6`.
 - Assets: resized `assets/icon.png` (3.2MB → 43KB, 256px) and `assets/logo.png` (3.7MB → 407KB, 1024px) for faster LCP; cache-bust `?v=6` / `?v=5` on header icon and hero logo.
