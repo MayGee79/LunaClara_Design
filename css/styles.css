@@ -450,10 +450,19 @@ a:hover {
   }
 
   .hero-badge {
-    white-space: normal;
-    font-size: 0.75rem;
-    line-height: 1.35;
+    display: block;
+    width: fit-content;
     max-width: 100%;
+    margin-inline: auto;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    letter-spacing: 0.035em;
+    padding: 0.4rem 0.55rem;
+    text-align: center;
   }
 
   .hero-actions {
