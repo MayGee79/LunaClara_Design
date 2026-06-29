@@ -1305,3 +1305,67 @@ a:hover {
   margin-bottom: 0 !important;
   color: var(--butter);
 }
+
+.footer-legal {
+  margin-bottom: 0.75rem !important;
+}
+
+/* Legal / privacy */
+.section-legal {
+  background: var(--cream);
+}
+
+.legal-prose {
+  max-width: 42rem;
+}
+
+.legal-prose h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid var(--ink);
+  display: inline-block;
+}
+
+.legal-prose h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-prose h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.legal-prose p,
+.legal-prose li {
+  margin: 0 0 0.85rem;
+}
+
+.legal-prose ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.legal-prose a {
+  color: var(--ponyo);
+}
+
+.legal-back {
+  margin-top: 2rem;
+}
+
+.form-privacy-note {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink);
+  opacity: 0.9;
+}
+
+.form-privacy-note a {
+  color: var(--ponyo);
+}
