@@ -29,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -49,6 +50,7 @@ body {
     linear-gradient(rgba(55, 110, 140, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
   background-attachment: fixed;
+  overflow-x: clip;
 }
 
 img {
@@ -296,6 +298,8 @@ a:hover {
 .section-inner {
   max-width: var(--max);
   margin: 0 auto;
+  width: 100%;
+  min-width: 0;
 }
 
 .section-header {
@@ -417,15 +421,55 @@ a:hover {
 }
 
 @media (max-width: 859px) {
+  .hero-layout {
+    max-width: 100%;
+    padding-inline: 1rem;
+  }
+
+  .hero-brand {
+    max-width: 100%;
+    width: 100%;
+  }
+
   .hero-mark {
-    width: min(19.5rem, 74vw);
+    /* Ring is ~128% of mark — keep total width inside viewport padding */
+    width: min(16rem, calc((100vw - 3rem) / 1.28));
     margin-inline: auto;
   }
 
   .hero-rotating {
-    inset: -16%;
-    width: 132%;
-    height: 132%;
+    inset: -14%;
+    width: 128%;
+    height: 128%;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero-badge {
+    white-space: normal;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 18rem;
+    margin-inline: auto;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  #collab-heading {
+    white-space: normal;
   }
 }
 
@@ -638,6 +682,8 @@ a:hover {
 .table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  width: 100%;
 }
 
 .price-table {
@@ -897,14 +943,17 @@ a:hover {
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
+  max-width: 100%;
   flex: 0 0 auto;
   min-height: 0;
+  min-width: 0;
   height: min(34vh, 200px);
   max-height: min(34vh, 200px);
   border: 3px solid var(--ink);
   border-radius: var(--btn-radius);
   background: var(--cream);
   box-shadow: var(--shadow-sm);
+  isolation: isolate;
 }
 
 .carousel-track {
