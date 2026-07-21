@@ -173,8 +173,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.25rem;
+  height: 3.25rem;
   background: var(--cream);
   border: 3px solid var(--border);
   border-radius: 999px;
@@ -183,8 +183,8 @@ a:hover {
 }
 
 .social-link svg {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: var(--ink);
 }
 
@@ -208,13 +208,13 @@ a:hover {
 
 @media (max-width: 420px) {
   .social-link {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2.75rem;
+    height: 2.75rem;
   }
 
   .social-link svg {
-    width: 1rem;
-    height: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 }
 

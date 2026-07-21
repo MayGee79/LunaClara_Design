@@ -2,6 +2,7 @@
 
 ## 2026-07-21
 - Header: social icons (Instagram, Facebook) next to the logo — cream circles, 3px ink border, offset shadow, same hover lift as `.logo-link`. Profiles: Instagram `@lunaclaradesignstudio`, Facebook profile `61574293211849`. CSS `?v=cursor9`.
+- Header: social icons sized to match the logo circle (3.25rem, 2.75rem on ≤420px). CSS `?v=cursor10`.
 
 ## 2026-06-29
 - Cookies: load `gtag.js` on every page with Consent Mode v2 (tag detectable by Google; `analytics_storage` still denied until Accept). `cookie-consent.js?v=2`.
