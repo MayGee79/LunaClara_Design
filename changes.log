@@ -1,5 +1,8 @@
 # LunaClara Design — change log
 
+## 2026-07-21
+- Header: social icons (Instagram, Facebook) next to the logo — cream circles, 3px ink border, offset shadow, same hover lift as `.logo-link`. Profiles: Instagram `@lunaclaradesignstudio`, Facebook profile `61574293211849`. CSS `?v=cursor9`.
+
 ## 2026-06-29
 - Cookies: load `gtag.js` on every page with Consent Mode v2 (tag detectable by Google; `analytics_storage` still denied until Accept). `cookie-consent.js?v=2`.
 - Privacy: added `privacy.html` (UK notice — contact form, GA4, cookies, rights); footer link on homepage; short note above contact submit; `sitemap.xml` updated. CSS `?v=cursor7`.
